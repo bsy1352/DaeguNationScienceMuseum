@@ -1,0 +1,226 @@
+﻿<Window x:Class="MultiRobots.Viewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MultiRobots.Viewer"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="1080" 
+        Width="1920" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+
+        WindowStyle="None" 
+        Background="Black"
+        Loaded="Window_Loaded"
+        Unloaded="Window_Unloaded"
+
+        WindowState="Maximized"
+        
+        >
+    
+    <Grid Margin="5">
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="Assets/Images/background.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="76*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="130*"/>
+            <RowDefinition Height="126*"/>
+            <RowDefinition Height="156*"/>
+            <RowDefinition Height="343*"/>
+            <RowDefinition Height="69*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="1353*"/>
+            <ColumnDefinition Width="56*"/>
+            <ColumnDefinition Width="388"/>
+            <ColumnDefinition Width="0.324"/>
+            <ColumnDefinition Width="92.676"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnHome" 
+            Grid.Row="0" 
+            Grid.Column="4"
+            Margin="96,42,153,10"
+            BorderBrush="Black"
+            BorderThickness="1" 
+            RenderTransformOrigin="-17.588,10.212" 
+            Click="BtnHome_Click" Width="139" Visibility="Hidden" Cursor="None">
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.5" />
+            </Button.BitmapEffect>
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <Grid Width="188">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="Assets/Images/robot-industrial.png" Margin="1" Height="40"/>
+                        <TextBlock Grid.Column="1" Text="Main" VerticalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+                    </Grid>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+
+        <Button x:Name="btnPower" Grid.Column="6" Visibility="Hidden" Margin="0,0,0,70" RenderTransformOrigin="-17.588,10.212" Click="BtnPower_Click" HorizontalAlignment="Right" Width="83" Background="Transparent" Cursor="None">
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.5" />
+            </Button.BitmapEffect>
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <Grid Width="188">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0"  Margin="1" Height="40"/>
+                        <TextBlock Grid.Column="1"  VerticalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+                    </Grid>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+        <Button x:Name="btnState" 
+                Grid.Row="6" 
+                Grid.Column="4"
+                FontFamily="Malgun Gothic" 
+                Margin="10,202,80,10" 
+                FontWeight="Bold" 
+                FontSize="48" 
+                Foreground="White"
+                Click="BtnState_Click" Background="#FF00AB56" Grid.ColumnSpan="3" Content="" Cursor="None">
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.5" />
+            </Button.BitmapEffect>
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <Grid Width="350">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="imgStartStop" Grid.Column="0" Source="Assets/Images/play-circle-outline.png" Margin="10 10 10 12" Width="50"/>
+                        <TextBlock x:Name="txtStartStop" Grid.Column="1" Text="모든 공정 시작" VerticalAlignment="Center" FontWeight="Bold" FontSize="40"/>
+                    </Grid>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+
+        <Image x:Name="imgLogo" HorizontalAlignment="Left" Height="147" Grid.RowSpan="2" VerticalAlignment="Top" Width="579" Source="Assets/Images/logo.png" Grid.Column="2" Margin="10,21,0,0"/>
+        <Button x:Name="btnSetting" 
+                Grid.Row="0" 
+                Grid.Column="1"
+                Margin="0,0,1290.188,70"
+                BorderBrush="Black"
+                BorderThickness="1" 
+                RenderTransformOrigin="-17.588,10.212" 
+                Click="BtnSetting_Click" Background="Transparent" Cursor="None" Grid.ColumnSpan="2">
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.5" />
+            </Button.BitmapEffect>
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <Grid Width="188">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Margin="1" Height="40"/>
+                        <TextBlock Grid.Column="1"  VerticalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+                    </Grid>
+                </DataTemplate>
+            </Button.ContentTemplate>
+
+        </Button>
+        <Frame Name="frame_content" 
+               Grid.Row="2" 
+               Grid.Column="2"                
+               Grid.RowSpan="5"
+               Visibility="Visible" 
+               NavigationUIVisibility="Hidden"
+               HorizontalContentAlignment="Right"
+               Source="/MultiRobots.Viewer;component/Pages/Home.xaml" Margin="0,6"/>
+        <Button x:Name="btnState_bonnet" 
+            Grid.Row="2" 
+            Grid.Column="4"
+            FontFamily="Malgun Gothic" 
+            Margin="9.611,0,80.389,59" 
+            FontWeight="Bold" 
+            FontSize="48" 
+            Foreground="White"
+            Click="BtnBonnet_Click" Background="#FF00AB56" Grid.ColumnSpan="3" Content="" Grid.RowSpan="2" Cursor="None">
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.5" />
+            </Button.BitmapEffect>
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <Grid Width="350">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="imgStartStop" Grid.Column="0" Source="Assets/Images/play-circle-outline.png" Margin="10 10 10 12" Width="50"/>
+                        <TextBlock x:Name="txtStartStop" Grid.Column="1" Text="보닛 조립 공정" VerticalAlignment="Center" FontWeight="Bold" FontSize="40"/>
+                    </Grid>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+        <Button x:Name="btnState_wheel" 
+            Grid.Row="4" 
+            Grid.Column="4"
+            FontFamily="Malgun Gothic" 
+            Margin="9.611,42,80.389,109" 
+            FontWeight="Bold" 
+            FontSize="48" 
+            Foreground="White"
+            Click="BtnWheel_Click" Background="#FF00AB56" Grid.ColumnSpan="3" Content="" Grid.RowSpan="2" Cursor="None">
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.5" />
+            </Button.BitmapEffect>
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <Grid Width="350">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="imgStartStop" Grid.Column="0" Source="Assets/Images/play-circle-outline.png" Margin="10 10 10 12" Width="50"/>
+                        <TextBlock x:Name="txtStartStop" Grid.Column="1" Text="바퀴 조립 공정" VerticalAlignment="Center" FontWeight="Bold" FontSize="40"/>
+                    </Grid>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+        <Button x:Name="btnState_door" 
+            Grid.Row="5" 
+            Grid.Column="4"
+            FontFamily="Malgun Gothic" 
+            Margin="9.611,132,80.389,236" 
+            FontWeight="Bold" 
+            FontSize="48" 
+            Foreground="White"
+            Click="BtnDoor_Click" Background="#FF00AB56" Grid.ColumnSpan="3" Content="" Grid.RowSpan="2" Cursor="None">
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.5" />
+            </Button.BitmapEffect>
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <Grid Width="350">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="imgStartStop" Grid.Column="0" Source="Assets/Images/play-circle-outline.png" Margin="10 10 10 12" Width="50"/>
+                        <TextBlock x:Name="txtStartStop" Grid.Column="1" Text="차문 조립 고정" VerticalAlignment="Center" FontWeight="Bold" FontSize="40"/>
+                    </Grid>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+
+    </Grid>
+</Window>
+

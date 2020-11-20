@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="MultiRobots.Viewer.Pages.Home2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MultiRobots.Viewer.Pages"
+             mc:Ignorable="d" Width="1380" Background="Transparent" Height="810">
+    <Grid Margin="0,0,10,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="454*"/>
+            <RowDefinition/>
+            <RowDefinition Height="356*"/>
+        </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Left" Height="810" Margin="10,21,-10,-21" VerticalAlignment="Top" Width="1370" Source="/Assets/Images/trigger_1.bmp" Grid.RowSpan="3"/>
+    </Grid>
+</UserControl>
